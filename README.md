@@ -1,6 +1,8 @@
 ## Overview
 
-The script creates a Graphical User Interface (GUI) application that allows a user to interact with OpenAI's GPT-4 model. Users can input text, which is sent to the GPT-4 model, and receive responses displayed in the application. **YOU MUST HAVE ANACONDA INSTALLED TO RUN THIS CODE.**
+**YOU MUST HAVE ANACONDA INSTALLED TO RUN THIS CODE. Download the latest Anaconda and then install the libraries via the gpt_gui.yml into an environment of your choosing.**
+
+The script creates a Graphical User Interface (GUI) desktop application that allows a user to interact with OpenAI's GPT-4 model (or any model you choose, you just need to edit the Python file, by default is GPT-4). Users can input text, which is sent to the GPT-4 model, and receive responses displayed in the application. 
 
 ## Libraries Used
 
