@@ -1,6 +1,6 @@
 ## Overview
 
-The script creates a Graphical User Interface (GUI) application that allows a user to interact with OpenAI's GPT-4 model. Users can input text, which is sent to the GPT-4 model, and receive responses displayed in the application.
+The script creates a Graphical User Interface (GUI) application that allows a user to interact with OpenAI's GPT-4 model. Users can input text, which is sent to the GPT-4 model, and receive responses displayed in the application. YOU MUST HAVE ANACONDA INSTALLED TO RUN THIS CODE.
 
 ## Libraries Used
 
