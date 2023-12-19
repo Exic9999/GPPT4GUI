@@ -1,6 +1,6 @@
 ## Overview
 
-The script creates a Graphical User Interface (GUI) application that allows a user to interact with OpenAI's GPT-4 model. Users can input text, which is sent to the GPT-4 model, and receive responses displayed in the application.
+The script creates a Graphical User Interface (GUI) application that allows a user to interact with OpenAI's GPT-4 model. Users can input text, which is sent to the GPT-4 model, and receive responses displayed in the application. **YOU MUST HAVE ANACONDA INSTALLED TO RUN THIS CODE.**
 
 ## Libraries Used
 
@@ -18,7 +18,7 @@ The script creates a Graphical User Interface (GUI) application that allows a us
    - The `api_call` function, which makes the call to the GPT-4 API, is run in a separate thread to prevent the GUI from freezing during the API call.
 
 3. **OpenAI API Key**
-   - The script requires an OpenAI API key to interact with the GPT-4 model.
+   - The script requires an OpenAI API key to interact with the GPT-4 model. **Please enter in the script itself.**
 
 4. **GUI Components**
    - The application window is created with Tkinter, consisting of input and output text boxes, a send button, and a loading label.
