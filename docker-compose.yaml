@@ -4,7 +4,7 @@ services:
     container_name: GPPT4GUI
     env_file:
       - .env
-    image: gppt4gui-web
+    image: gppt4web
     ports:
-      - 18080:8080
+      - 5050:5000
     restart: unless-stopped

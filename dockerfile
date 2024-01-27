@@ -1,7 +1,11 @@
-FROM ubuntu:22.04
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt-get install -y xpra python3 python3-tk python3-dev python3-pip
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY GPT4GUI.py .
-CMD xpra start --start="python3 GPT4GUI.py" --bind-tcp=0.0.0.0:8080 --html=on && tail -f /dev/null
+FROM python:3.10.13-alpine3.19
+WORKDIR /app
+
+COPY requirements.txt gpt4web.py ./
+COPY templates ./templates
+RUN pip install -r ./requirements.txt
+RUN pip install gunicorn
+ENV FLASK_ENV production
+
+EXPOSE 5000
+CMD ["gunicorn", "-b", ":5000", "gpt4web:app"]

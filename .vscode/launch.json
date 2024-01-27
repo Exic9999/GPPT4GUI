@@ -13,6 +13,25 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Python: flask gpt web app",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "gpt4web.py",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"  // make sure it is not "0"
+            },
+            "args": [
+                "run",
+               // "--no-debugger", Comment out this line
+               // "--no-reload"  Comment out this line
+            ],
+            "jinja": true,
+            "justMyCode": true,
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

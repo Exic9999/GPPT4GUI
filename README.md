@@ -15,25 +15,24 @@ The script creates a Graphical User Interface (GUI) desktop application that all
 7. Update the value of `CHAT_GPT_API_KEY` in `.env` to be your chat gpt api key
 8. tell VSCode to use the venv you created in step 4: https://code.visualstudio.com/docs/python/environments
 9. run/debug through VSCode, vscode should automatically load the .env file for you: https://code.visualstudio.com/docs/python/environments#_environment-variables
+    * `Python: GPPT4GUI File` runs the desktop TKinter UI
+    * `Python: flask gpt web app` runs the flask web app UI, available on port 5000
 
 TODO: are there any weird windows-specific dependencies that the above steps won't work for?
 
 
 ## Create and Run Docker Image
 
-1. build the docker image (e.g. `sudo docker build -t gppt4gui-web .`)
+1. build the docker image (e.g. `sudo docker build -t gppt4web .`)
 2. Run the docker-compose file (e.g. `sudo docker compose up`)
-3. go to http://127.0.0.1:18080/
-4. Use the app (sorry no copy/paste)
-
-
-TODO: we should flask this
+3. go to http://127.0.0.1:5050/
 
 ## Libraries Used
 
 - `tkinter`: A standard Python library for creating GUI applications.
 - `openai`: The OpenAI library used to interact with the GPT-4 API.
 - `threading`: A standard library for running processes in separate threads.
+- `Flask`: popular python web microframework
 
 ## Main Components
 

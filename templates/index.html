@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <title>GPT4 Web GUI</title>
+        <meta name="robots" content="noindex">
+        <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+        <script>
+            function clearResponse() {
+                const responseArea = document.getElementById('response');
+                if(responseArea) {
+                    responseArea.innerHTML = '';
+                }
+            }
+            htmx.on("htmx:afterRequest", (evt) => {
+                if(evt.detail.successful) {
+                    document.quertSelectorAll('#question').forEach(el => el.value = '');
+                }
+                document.querySelectorAll('.sending').forEach(el => el.classList.remove('visible'));
+            })
+            htmx.on("htmx:beforeRequest", (evt) => {
+                document.querySelectorAll('.sending').forEach(el => el.classList.add('visible'));
+            })
+            htmx.on("htmx:beforeSwap", (evt) => {
+                evt.detail.shouldSwap = true;
+            })
+        </script>
+        <style>
+            body {
+                font-family: 'Noto Sans', sans-serif;
+                background-color: #2A3439;
+                color: #A9ADAF;
+            }
+            fieldset {
+                border: unset;
+            }
+            .question-container {
+              display: flex;
+              flex-direction: column;
+            }
+            #question {
+                margin-top: 0.25rem;
+                width: 100%;
+                height: 20dvh;
+                background-color: #5D759A;
+                color: #DCDEE3;
+                font-size: 1.125rem;
+                font-weight: bold;
+                resize: none;
+            }
+            .form-options {
+                display: flex;
+                width: 300px;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                justify-content: space-between;
+            }
+            .question-btn {
+                padding: 0.5rem;
+                flex-basis: 10rem;
+                font-weight: bold;
+            }
+            .question-btn.btn-submit {
+                flex-basis: 5rem;
+            }
+            .btn-clear {
+                font-weight: bold;
+                width: 7.5rem;
+                align-self: center;
+                padding: 0.25rem;
+            }
+            .response-area-header {
+                display: flex;
+                justify-content: space-between;
+            }
+            #response {
+                height: 60dvh;
+                background-color: #465873;
+                color: #D0D5C3;
+                overflow: scroll;
+            }
+            .result {
+                padding: 0.25rem;
+            }
+            .result:not(:last-child) {
+                border-bottom: 5px solid #2A3439;
+            }
+            .result:nth-child(2n+1) {
+                background-color: #4B3A76;
+            }
+            .quesiton-area {
+                font-weight: bold;
+            }
+            .display-answer {
+                white-space: pre-wrap;
+            }
+            .sending {
+                display: none;
+            }
+            .sending.visible {
+                display: block;
+                margin-bottom: -30px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <form
+            hx-post="/ask"
+            hx-trigger="submit"
+            hx-target="#response"
+            hx-swap="afterbegin"
+            hx-disabled-elt=".question-btn"
+            id="chat-gpt-form">
+            <fieldset class="question-container">
+                <label for="question">
+                    What is your question?
+                </label>
+                <textarea name="question" autofocus id="question"></textarea>
+            </fieldset>
+            <div class="form-options">
+                <button
+                    hx-post="/ask"
+                    hx-trigger="click"
+                    hx-target="#response"
+                    hx-swap="innerHTML"
+                    hx-disabled-elt=".question-btn"
+                    class="question-btn btn-clear-submit">
+                    Clear Responses<br />& Send
+                </button>
+                <button class="question-btn btn-submit" id="submit-button" type="submit">Send</button>
+            </div>
+            <div class="sending">
+                Asking ChatGPT4 now...
+            </div>
+        </form>
+        <section>
+            <header class="response-area-header">
+                <h3>response area:</h3>
+                <button class="btn-clear" hx-on:click="clearResponse()">Clear Responses</button>
+            </header>
+            <article id="response">
+            </article>
+        </section>
+    </body>
+</html>
