@@ -6,7 +6,7 @@ name = "gppt4gui"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Eric Simmons", email = "noreply"},
+    {name = "Eric Simmons", email = "noreply@noreply.no"},
 ]
 dependencies = [
     "Flask>=3.0.1",
