@@ -15,7 +15,7 @@
             }
             htmx.on("htmx:afterRequest", (evt) => {
                 if(evt.detail.successful) {
-                    document.quertSelectorAll('#question').forEach(el => el.value = '');
+                    document.querySelectorAll('#question').forEach(el => el.value = '');
                 }
                 document.querySelectorAll('.sending').forEach(el => el.classList.remove('visible'));
             })

@@ -10,7 +10,7 @@ def ask_chat_gpt(question: str) -> Tuple[str,bool]:
     # will blow up if no key is provided
     try:
         openai.api_key = os.environ['CHAT_GPT_API_KEY']
-        response = openai.ChatCompletion.create(
+        response = openai.ChatCompletion.create( # type: ignore
             model="gpt-4-1106-preview",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
