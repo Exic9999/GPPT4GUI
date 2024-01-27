@@ -15,7 +15,9 @@
             }
             htmx.on("htmx:afterRequest", (evt) => {
                 if(evt.detail.successful) {
-                    document.querySelectorAll('#question').forEach(el => el.value = '');
+                    const questionArea = document.getElementById('question');
+                    questionArea.value = '';
+                    questionArea.focus();
                 }
                 document.querySelectorAll('.sending').forEach(el => el.classList.remove('visible'));
             })
