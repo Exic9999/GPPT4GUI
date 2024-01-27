@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import scrolledtext, font
 import openai
@@ -44,7 +45,8 @@ def send_request(event=None):
 
     threading.Thread(target=api_call).start()
 
-openai.api_key = ''
+# will blow up if no key is provided
+openai.api_key = os.environ['CHAT_GPT_API_KEY']
 
 root = tk.Tk()
 root.title("GPT-4 GUI")

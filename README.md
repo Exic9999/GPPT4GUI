@@ -4,6 +4,31 @@
 
 The script creates a Graphical User Interface (GUI) desktop application that allows a user to interact with OpenAI's GPT-4 model (or any model you choose, you just need to edit the Python file, by default is GPT-4). Users can input text, which is sent to the GPT-4 model, and receive responses displayed in the application. 
 
+## Setup
+
+1. Install Python if you haven't already (python3 > 3.8)
+2. Install pdm if you haven't already (recommend using pipx): https://pdm-project.org/latest/
+3. clone this repo
+4. create a virtual env with pdm `pdm venv create`
+5. install dependencies with pdm `pdm install`
+6. copy `.env-example` to `.env`
+7. Update the value of `CHAT_GPT_API_KEY` in `.env` to be your chat gpt api key
+8. tell VSCode to use the venv you created in step 4: https://code.visualstudio.com/docs/python/environments
+9. run/debug through VSCode, vscode should automatically load the .env file for you: https://code.visualstudio.com/docs/python/environments#_environment-variables
+
+TODO: are there any weird windows-specific dependencies that the above steps won't work for?
+
+
+## Create and Run Docker Image
+
+1. build the docker image (e.g. `sudo docker build -t gppt4gui-web .`)
+2. Run the docker-compose file (e.g. `sudo docker compose up`)
+3. go to http://127.0.0.1:18080/
+4. Use the app (sorry no copy/paste)
+
+
+TODO: we should flask this
+
 ## Libraries Used
 
 - `tkinter`: A standard Python library for creating GUI applications.

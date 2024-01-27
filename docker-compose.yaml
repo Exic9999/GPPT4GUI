@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    container_name: GPPT4GUI
+    env_file:
+      - .env
+    image: gppt4gui-web
+    ports:
+      - 18080:8080
+    restart: unless-stopped
