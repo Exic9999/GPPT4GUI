@@ -8,4 +8,4 @@ RUN pip install gunicorn
 ENV FLASK_ENV production
 
 EXPOSE 5000
-CMD ["gunicorn", "-b", ":5000", "gpt4web:app"]
+CMD ["gunicorn", "-b", ":5000", "--timeout", "90", "gpt4web:app"]
